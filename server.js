@@ -39,12 +39,15 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 // Registration API
 app.post('/register', async (req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, email, password } = req.body;
+    console.log(req.body);
+    
+
 
     // Basic validation
-    if (!name || !email || !password || !confirmPassword ) {
-        return res.status(400).json({ message: 'All fields are required.' });
-    }
+    // if (!name || !email || !password || !confirmPassword ) {
+    //     return res.status(400).json({ message: 'All fields are required.' });
+    // }
 
     try {
         // Check if user already exists
