@@ -42,7 +42,7 @@ app.post('/register', async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
 
     // Basic validation
-    if (!name || !email || !password || confirmPassword ) {
+    if (!name || !email || !password || !confirmPassword ) {
         return res.status(400).json({ message: 'All fields are required.' });
     }
 
