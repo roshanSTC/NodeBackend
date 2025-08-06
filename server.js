@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://roshantambe:ffV20J0VPaFRsKVp@cluster0.2daeeve.mo
 
 // Enable CORS (so Angular frontend can call backend)
 app.use(cors({
-   origin: 'http://localhost:4200', // Allow only this origin
+   origin: '', // Allow only this origin
   methods: ['POST'],               // Allow POST method
   allowedHeaders: ['Content-Type'] // Allow Content-Type header
   }
@@ -39,10 +39,10 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 // Registration API
 app.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
 
     // Basic validation
-    if (!name || !email || !password) {
+    if (!name || !email || !password || confirmPassword ) {
         return res.status(400).json({ message: 'All fields are required.' });
     }
 
